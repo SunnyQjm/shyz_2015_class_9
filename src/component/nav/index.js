@@ -6,6 +6,9 @@ import {
 } from 'antd'
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import {
+    Link
+} from 'react-router-dom'
 
 const {Item} = Menu;
 
@@ -45,11 +48,15 @@ const MyDropDown = styled.div`
 `;
 
 
-const WELCOME_KEY = 'WELCOME_KEY';
-const MEMBERS_KEY = 'MEMBERS_KEY';
-const MORE_KEY = 'MORE_KEY';
+const WELCOME_KEY = '/';
+const MEMBERS_KEY = '/members';
+const MORE_KEY = '/more';
 
-
+const menuItems = [
+    <MyItem key={WELCOME_KEY}><Link to="/">Welcome</Link></MyItem>,
+    <MyItem key={MEMBERS_KEY}><Link to="/members">Members</Link></MyItem>,
+    <MyItem key={MORE_KEY}><Link to="/more">More</Link></MyItem>
+];
 
 class Nav extends React.Component {
 
@@ -60,20 +67,22 @@ class Nav extends React.Component {
 
     handleMobileMenuClick(e){
         const {onSelect} = this.props;
-        onSelect(e);
+        onSelect && onSelect(e);
     }
 
     render() {
-        const {defaultSelectedKey, isMobile, onSelect} = this.props;
+        const {isMobile, onSelect} = this.props;
+
+        // 根据当前地址栏的URL，判断当前应该是哪个菜单项被选中
+        let selectedKey = '/' + document.location.pathname.split('/').pop();
+
         let dropDownMenu = (
             <Menu
                 theme={'dark'}
-                selectedKeys={[defaultSelectedKey]}
+                selectedKeys={[selectedKey]}
                 onClick={this.handleMobileMenuClick}
             >
-                <MyItem key={WELCOME_KEY}>Welcome</MyItem>
-                <MyItem key={MEMBERS_KEY}>Members</MyItem>
-                <MyItem key={MORE_KEY}>More</MyItem>
+                {menuItems}
             </Menu>
         );
         let menu = isMobile ?
@@ -93,12 +102,10 @@ class Nav extends React.Component {
             <MyMenu
                 theme="dark"
                 mode="horizontal"
-                defaultSelectedKeys={[defaultSelectedKey]}
+                defaultSelectedKeys={[selectedKey]}
                 onSelect={onSelect}
             >
-                <MyItem key={WELCOME_KEY}>Welcome</MyItem>
-                <MyItem key={MEMBERS_KEY}>Members</MyItem>
-                <MyItem key={MORE_KEY}>More</MyItem>
+                {menuItems}
             </MyMenu>;
         return (
             <Header>

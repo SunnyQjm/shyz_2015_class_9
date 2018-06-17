@@ -1,23 +1,18 @@
 import React from 'react'
-import {Layout} from 'antd';
 import styled from 'styled-components';
 import icon from '../../img/icon.png';
 import QueueAnim from 'rc-queue-anim';
 import './index.css';
 import BannerAnim, {Element} from 'rc-banner-anim';
-import TweenOne from 'rc-tween-one';
 import 'rc-banner-anim/assets/index.css';
+import {
+    BaseContent
+} from '../base'
 
 const BgElement = Element.BgElement;
 
-const {Content} = Layout;
 
-const MyContent = styled(Content)`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-`;
+const MyContent = styled(BaseContent)``;
 
 const IndexBody = styled(QueueAnim)`
     display: flex;
@@ -44,10 +39,6 @@ const PoetrySpan = styled.span`
     padding: 5px 0;
 `;
 
-const CenterDiv = styled.div`
-    
-`;
-
 class WelcomeComponent extends React.Component {
     render() {
         let bgUrls = [
@@ -55,10 +46,10 @@ class WelcomeComponent extends React.Component {
             'https://upload-images.jianshu.io/upload_images/7222676-94683db13dc4fa23.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
             'https://upload-images.jianshu.io/upload_images/7222676-0ebbfdd382b30549.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
         ];
-        let elements = bgUrls.map(value => {
+        let elements = bgUrls.map((value, index) => {
             return <MyElement
                 prefixCls="banner-user-elem"
-                key="0"
+                key={index}
             >
                 <BgElement
                     key="bg"
