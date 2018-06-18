@@ -43,12 +43,14 @@ class App extends Component {
 
     render() {
         return (
-            <Router>
+            <Router
+                basename={'/shyz_2015_class_9'}
+            >
                 <Layout style={{
                     backgroundColor: '#13171a',
                     minHeight: '100%',
                 }}>
-                    <Nav isMobile={this.state.isMobile} />
+                    <Nav isMobile={this.state.isMobile}/>
 
                     <Route exact path={'/'} component={WelcomeComponent}/>
                     <Route path={'/members'} component={MembersComponent}/>
