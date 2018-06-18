@@ -12,7 +12,9 @@ import {
 const BgElement = Element.BgElement;
 
 
-const MyContent = styled(BaseContent)``;
+const MyContent = styled(BaseContent)`
+    padding: 0;
+`;
 
 const IndexBody = styled(QueueAnim)`
     display: flex;
