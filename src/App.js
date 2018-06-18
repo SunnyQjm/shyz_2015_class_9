@@ -45,7 +45,7 @@ class App extends Component {
         return (
             <Router
                 //如果要部署在github上，需要加上下面这行
-                basename={'/shyz_2015_class_9'}
+                // basename={'/shyz_2015_class_9'}
             >
                 <Layout style={{
                     backgroundColor: '#13171a',

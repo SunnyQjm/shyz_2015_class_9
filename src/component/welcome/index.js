@@ -94,7 +94,7 @@ class WelcomeComponent extends React.Component {
                     <PoetrySpan key={'4'}>在最好的年纪</PoetrySpan>
                     <PoetrySpan key={'5'}>我们一起度过了最好的时光</PoetrySpan>
                     <PoetrySpan key={'6'}>任时光荏苒</PoetrySpan>
-                    <PoetrySpan key={'7'}>我们却年少如初</PoetrySpan>
+                    <PoetrySpan key={'7'}>愿我们年少如初</PoetrySpan>
                 </IndexBody>
             </MyContent>
 

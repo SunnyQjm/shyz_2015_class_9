@@ -67,23 +67,28 @@ class MembersComponent extends React.Component {
         }
         for (let i = 0; i < 56; i++) {
             students.push(
-                <Card
-                    hoverable={true}
-                    style={{
-                        width: 300,
-                        margin: 5
-                    }}
-                    cover={<img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-                                style={{
-                                    backgroundSize: 'cover'
-                                }}/>}
+                <Parallax
+                    animation={{x: 0, opacity: 1, playScale: [-0.3, 0.2], scale: 1}}
+                    style={{transform: 'scale(0, 0)', opacity: 0, scale: 0}}
                 >
-                    <Meta
-                        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>}
-                        title={`Student${i}`}
-                        description="I am a Student"
-                    />
-                </Card>
+                    <Card
+                        hoverable={true}
+                        style={{
+                            width: 300,
+                            margin: 5
+                        }}
+                        cover={<img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                                    style={{
+                                        backgroundSize: 'cover'
+                                    }}/>}
+                    >
+                        <Meta
+                            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>}
+                            title={`Student${i}`}
+                            description="I am a Student"
+                        />
+                    </Card>
+                </Parallax>
             );
         }
 
@@ -101,9 +106,8 @@ class MembersComponent extends React.Component {
                 </QueueAnim>
                 {teachers}
                 <Parallax
-                    animation={{x: 0, opacity: 1, playScale: [0.1, 0.8]}}
+                    animation={{x: 0, opacity: 1, playScale: [0.5, 0.8]}}
                     style={{transform: 'translateX(-100px)', opacity: 0.5}}
-                    className="code-box-shape"
                 >
                     <Divider
                         orientation={'right'}
